@@ -1,0 +1,27 @@
+{
+  "name": "cloudamqp-frame-issue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node app.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2joocy/cloudamqp-frame-issue.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/2joocy/cloudamqp-frame-issue/issues"
+  },
+  "homepage": "https://github.com/2joocy/cloudamqp-frame-issue#readme",
+  "dependencies": {
+    "@cloudamqp/amqp-client": "^2.1.0",
+    "ts-node": "^10.9.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.23"
+  }
+}
