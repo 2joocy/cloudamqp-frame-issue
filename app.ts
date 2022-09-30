@@ -1,6 +1,6 @@
-import { AMQPClient } from "@cloudamqp/amqp-client";
-import { readFileSync } from "fs";
-import { resolve } from "path";
+import { AMQPClient } from '@cloudamqp/amqp-client';
+import { readFileSync } from 'fs';
+import { resolve } from 'path';
 
 const { AMQP_URL = `amqp://guest:guest@localhost:5672` } = process.env;
 
@@ -17,13 +17,14 @@ async function run(url: string) {
       console.log(msg.bodyToString()?.length);
       await consumer.cancel();
     });
-    for (let index = 0; index < 3; index++) {
-      q.publish(data).catch(console.error);
+    for (let index = 0; index < 20; index++) {
+      await q.publish(data).catch(console.error);
+      console.log('Sent message #' + index);
     }
     await consumer.wait(); // will block until consumer is canceled or throw an error if server closed channel/connection
     await conn.close();
   } catch (e) {
-    console.error("ERROR", e);
+    console.error('ERROR', e);
   }
 }
 
